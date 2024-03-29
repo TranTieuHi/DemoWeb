@@ -1,22 +1,22 @@
 import {foodItem} from './fooditem.js'
 
 function displayItems(){
-    var biryani= document.getElementById('Pho');
-    var paneer=  document.getElementById('paneer');;
+    var pho= document.getElementById('pho');
+    var com=  document.getElementById('com');
     var chicken=  document.getElementById('chicken');
     var vegetable=  document.getElementById('vegetable');
-    var chinese=  document.getElementById('chinese');
-    var southIndian=  document.getElementById('south-indian');
+    var banhMi=  document.getElementById('banhMi');
+    var doAnChay=  document.getElementById('doAnChay');
 
-    
 
-    const biryaniData= foodItem.filter((item)=>item.category=='Pho');
+
+    const phoData= foodItem.filter((item)=>item.category=='phở');
+    const cơmData= foodItem.filter((item)=>item.category=='cơm');
     const chickenData= foodItem.filter((item)=>item.category=='chicken');
-    const PaneerData= foodItem.filter((item)=>item.category=='paneer');
     const vegetableData= foodItem.filter((item)=>item.category=='vegetable');
-    const chineseData= foodItem.filter((item)=>item.category=='chinese');
-    const southData= foodItem.filter((item)=>item.category=='south indian');
-    biryaniData.map(item=>{
+    const banhMiData= foodItem.filter((item)=>item.category=='bánh mì');
+    const doAnChayData= foodItem.filter((item)=>item.category=='đồ ăn chay');
+    phoData.map(item=>{
         
         var itemCard= document.createElement('div');
         itemCard.setAttribute('id','item-card')
@@ -53,7 +53,7 @@ function displayItems(){
         itemCard.appendChild(itemName);
         itemCard.appendChild(itemPrice);
 
-        biryani.appendChild(itemCard);
+        pho.appendChild(itemCard);
         
     })
 
@@ -98,7 +98,7 @@ function displayItems(){
 
     })
 
-    PaneerData.map(item=>{
+    cơmData.map(item=>{
         var itemCard= document.createElement('div');
         itemCard.setAttribute('id','item-card')
 
@@ -134,7 +134,7 @@ function displayItems(){
         itemCard.appendChild(itemName);
         itemCard.appendChild(itemPrice);
         
-        paneer.appendChild(itemCard)
+        com.appendChild(itemCard)
 
     })
 
@@ -179,7 +179,7 @@ function displayItems(){
     
     })
 
-    chineseData.map(item=>{
+    banhMiData.map(item=>{
         var itemCard= document.createElement('div');
         itemCard.setAttribute('id','item-card')
 
@@ -216,11 +216,11 @@ function displayItems(){
         itemCard.appendChild(itemPrice);
 
         
-        chinese.appendChild(itemCard)
+        banhMi.appendChild(itemCard)
         
     })
 
-    southData.map(item=>{
+    doAnChayData.map(item=>{
         var itemCard= document.createElement('div');
         itemCard.setAttribute('id','item-card')
 
@@ -256,7 +256,7 @@ function displayItems(){
         itemCard.appendChild(itemName);
         itemCard.appendChild(itemPrice);
 
-        southIndian.appendChild(itemCard)
+        doAnChay.appendChild(itemCard)
 
     })
 }
@@ -273,15 +273,15 @@ function selectTaste(){
         console.log(item)
         var listCard= document.createElement('div');
         listCard.setAttribute('class','list-card');
-    
+
         var listImg= document.createElement('img');
         listImg.src= item.img;
-    
+
         var listName= document.createElement('a');
         listName.setAttribute('class','list-name');
         listName.innerText= item.category;
-        listName.setAttribute('href','#'+item.category)
-    
+        listName.setAttribute('href','#'+nameToVar(item.category))
+
         listCard.appendChild(listImg);
         listCard.appendChild(listName);
 
@@ -292,6 +292,42 @@ function selectTaste(){
 }
 selectTaste();
 
+function nameToVar(str) {
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g,"i"); 
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o"); 
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u"); 
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y"); 
+    str = str.replace(/đ/g,"d");
+    str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+    str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+    str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+    str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+    str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+    str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+    str = str.replace(/Đ/g, "D");
+    // Some system encode vietnamese combining accent as individual utf-8 characters
+    // Một vài bộ encode coi các dấu mũ, dấu chữ như một kí tự riêng biệt nên thêm hai dòng này
+    str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // ̀ ́ ̃ ̉ ̣  huyền, sắc, ngã, hỏi, nặng
+    str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // ˆ ̆ ̛  Â, Ê, Ă, Ơ, Ư
+    // Remove extra spaces
+    // Bỏ các khoảng trắng liền nhau
+    str = str.replace(/ + /g," ");
+    str = str.trim();
+    // Remove punctuations
+    // Bỏ dấu câu, kí tự đặc biệt
+    str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
+
+    var splitStr = str.toLowerCase().split(' ');
+    for (var i = 1; i < splitStr.length; i++) {
+        // You do not need to check if i is larger than splitStr length, as your for does that for you
+        // Assign it back to the array
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+    }
+    // Directly return the joined string
+    return splitStr.join(''); 
+}
 
 document.querySelectorAll('.add-to-cart').forEach(item=>{
     item.addEventListener('click',addToCart)

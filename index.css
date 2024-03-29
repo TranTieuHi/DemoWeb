@@ -130,18 +130,18 @@ body{
     color: white;
     background: crimson;
 }
-#biryani,#paneer,#chicken,#vegetable,#chinese,#south-indian{
-    margin-top: 40px;   
+#pho,#com,#chicken,#vegetable,#banhMi,#doAnChay{
+    margin-top: 40px;
 }
-#paneer #item-card,#vegetable #item-card{
+#com #item-card,#vegetable #item-card{
     background: rgb(218, 253, 188);
 }
-#chinese #item-card,#south-indian #item-card{
+#banhMi #item-card,#doAnChay #item-card{
     background: rgb(221, 243, 243);
 }
 #category-name,.item-menu{
     margin: 10px;
-    font-size: 35px;   
+    font-size: 35px;
     color: coral;
     font-family: 'Aclonica', sans-serif;
 }
@@ -179,7 +179,7 @@ body{
 }
 .toggle-heart{
 background: orangered;
-color: white; 
+color: white;
 }
 #item-card img{
     width: 120px;
@@ -296,7 +296,7 @@ color: white;
     margin-top: 40px;
     color: indianred;
     background: whitesmoke;
-    
+
 }
 .list-card{
     display: flex;
@@ -335,7 +335,7 @@ color: white;
 #mobile-view{
     display: none;
 }
-#biryani{
+#pho{
     margin-top: 10px;
 }
 #m-total-amount{
