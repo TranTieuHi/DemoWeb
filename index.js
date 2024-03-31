@@ -3,8 +3,8 @@ import {foodItem} from './fooditem.js'
 function displayItems(){
     var pho= document.getElementById('pho');
     var com=  document.getElementById('com');
-    var chicken=  document.getElementById('chicken');
-    var vegetable=  document.getElementById('vegetable');
+    var hutieu = document.getElementById("Hủ Tiếu");
+    var mi = document.getElementById("Mì");
     var banhMi=  document.getElementById('banhMi');
     var doAnChay=  document.getElementById('doAnChay');
 
@@ -12,8 +12,8 @@ function displayItems(){
 
     const phoData= foodItem.filter((item)=>item.category=='phở');
     const cơmData= foodItem.filter((item)=>item.category=='cơm');
-    const chickenData= foodItem.filter((item)=>item.category=='chicken');
-    const vegetableData= foodItem.filter((item)=>item.category=='vegetable');
+    const hutieuData = foodItem.filter((item) => item.category == "Hủ Tiếu");
+    const miData = foodItem.filter((item) => item.category == "Mì");
     const banhMiData= foodItem.filter((item)=>item.category=='bánh mì');
     const doAnChayData= foodItem.filter((item)=>item.category=='đồ ăn chay');
     phoData.map(item=>{
@@ -57,47 +57,6 @@ function displayItems(){
         
     })
 
-
-    chickenData.map(item=>{
-        var itemCard= document.createElement('div');
-        itemCard.setAttribute('id','item-card')
-
-        var cardTop= document.createElement('div');
-        cardTop.setAttribute('id','card-top');
-
-        var star= document.createElement('i');
-        star.setAttribute('class','fa fa-star');
-        star.setAttribute('id','rating');
-        star.innerText= ' ' + item.rating;
-
-        var heart= document.createElement('i');
-        heart.setAttribute('class','fa fa-heart-o add-to-cart');
-        heart.setAttribute('id',item.id)
-
-        cardTop.appendChild(star);
-        cardTop.appendChild(heart);
-
-
-        var img= document.createElement('img');
-        img.src=item.img;
-
-        var itemName= document.createElement('p');
-        itemName.setAttribute('id','item-name');
-        itemName.innerText= item.name;
-
-        var itemPrice= document.createElement('p');
-        itemPrice.setAttribute('id','item-price');
-        itemPrice.innerText= 'Price : $ ' + item.price;
-
-        itemCard.appendChild(cardTop);
-        itemCard.appendChild(img);
-        itemCard.appendChild(itemName);
-        itemCard.appendChild(itemPrice);
-        
-        chicken.appendChild(itemCard)
-
-    })
-
     cơmData.map(item=>{
         var itemCard= document.createElement('div');
         itemCard.setAttribute('id','item-card')
@@ -138,9 +97,48 @@ function displayItems(){
 
     })
 
-    vegetableData.map(item=>{
-        var itemCard= document.createElement('div');
-        itemCard.setAttribute('id','item-card')
+    hutieuData.map((item) => {
+        var itemCard = document.createElement("div");
+        itemCard.setAttribute("id", "item-card");
+
+        var cardTop = document.createElement("div");
+        cardTop.setAttribute("id", "card-top");
+
+        var star = document.createElement("i");
+        star.setAttribute("class", "fa fa-star");
+        star.setAttribute("id", "rating");
+        star.innerText = " " + item.rating;
+
+        var heart = document.createElement("i");
+        heart.setAttribute("class", "fa fa-heart-o add-to-cart");
+        heart.setAttribute("id", item.id);
+
+        cardTop.appendChild(star);
+        cardTop.appendChild(heart);
+
+        var img = document.createElement("img");
+        img.src = item.img;
+
+        var itemName = document.createElement("p");
+        itemName.setAttribute("id", "item-name");
+        itemName.innerText = item.name;
+
+        var itemPrice = document.createElement("p");
+        itemPrice.setAttribute("id", "item-price");
+        itemPrice.innerText = "Price : $ " + item.price;
+
+        itemCard.appendChild(cardTop);
+        itemCard.appendChild(img);
+        itemCard.appendChild(itemName);
+        itemCard.appendChild(itemPrice);
+
+        hutieu.appendChild(itemCard);
+    });
+    
+    
+    miData.map((item) => {
+        var itemCard = document.createElement("div");
+        itemCard.setAttribute("id", "item-card");
 
         var cardTop= document.createElement('div');
         cardTop.setAttribute('id','card-top');
@@ -157,9 +155,8 @@ function displayItems(){
         cardTop.appendChild(star);
         cardTop.appendChild(heart);
 
-
-        var img= document.createElement('img');
-        img.src=item.img;
+        var img = document.createElement("img");
+        img.src = item.img;
 
         var itemName= document.createElement('p');
         itemName.setAttribute('id','item-name');
@@ -174,10 +171,8 @@ function displayItems(){
         itemCard.appendChild(itemName);
         itemCard.appendChild(itemPrice);
 
-        
-        vegetable.appendChild(itemCard)
-    
-    })
+    mi.appendChild(itemCard);
+  });
 
     banhMiData.map(item=>{
         var itemCard= document.createElement('div');
@@ -217,7 +212,6 @@ function displayItems(){
 
         
         banhMi.appendChild(itemCard)
-        
     })
 
     doAnChayData.map(item=>{
@@ -257,7 +251,6 @@ function displayItems(){
         itemCard.appendChild(itemPrice);
 
         doAnChay.appendChild(itemCard)
-
     })
 }
 displayItems();
@@ -273,15 +266,15 @@ function selectTaste(){
         console.log(item)
         var listCard= document.createElement('div');
         listCard.setAttribute('class','list-card');
-
+    
         var listImg= document.createElement('img');
         listImg.src= item.img;
-
+    
         var listName= document.createElement('a');
         listName.setAttribute('class','list-name');
         listName.innerText= item.category;
-        listName.setAttribute('href','#'+nameToVar(item.category))
-
+        listName.setAttribute('href','#'+item.category)
+    
         listCard.appendChild(listImg);
         listCard.appendChild(listName);
 
@@ -293,12 +286,12 @@ function selectTaste(){
 selectTaste();
 
 function nameToVar(str) {
-    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
-    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
-    str = str.replace(/ì|í|ị|ỉ|ĩ/g,"i"); 
-    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o"); 
-    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u"); 
-    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y"); 
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g,"i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y");
     str = str.replace(/đ/g,"d");
     str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
     str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
@@ -326,7 +319,7 @@ function nameToVar(str) {
         splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
     }
     // Directly return the joined string
-    return splitStr.join(''); 
+    return splitStr.join('');
 }
 
 document.querySelectorAll('.add-to-cart').forEach(item=>{
@@ -335,7 +328,6 @@ document.querySelectorAll('.add-to-cart').forEach(item=>{
 
 var cartData= [];
 function addToCart(){
-    
     var itemToAdd= this.parentNode.nextSibling.nextSibling.innerText;
     var itemObj= foodItem.find(element=>element.name==itemToAdd);
 
@@ -478,8 +470,6 @@ function cartToggle(){
         alert("Currently no item in cart!");
     }
 }
-
-
 
 window.onresize= window.onload= function(){
     var size= window.screen.width;
