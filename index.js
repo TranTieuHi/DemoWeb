@@ -1,22 +1,12 @@
+// noinspection RegExpSingleCharAlternation,RegExpRedundantEscape,ES6ConvertVarToLetConst
+
 import {foodItem} from './fooditem.js'
 
-function displayItems() {
-    var pho = document.getElementById('pho');
-    var com = document.getElementById('com');
-    var hutieu = document.getElementById("huTieu");
-    var mi = document.getElementById("mi");
-    var banhMi = document.getElementById('banhMi');
-    var doAnChay = document.getElementById('doAnChay');
+function createList(category) {
+    var dish = document.getElementById(nameToVar(category));
 
-
-    const phoData = foodItem.filter((item) => item.category == 'phở');
-    const comData = foodItem.filter((item) => item.category == 'cơm');
-    const hutieuData = foodItem.filter((item) => item.category == "hủ tiếu");
-    const miData = foodItem.filter((item) => item.category == "mì");
-    const banhMiData = foodItem.filter((item) => item.category == 'bánh mì');
-    const doAnChayData = foodItem.filter((item) => item.category == 'đồ ăn chay');
-    phoData.map(item => {
-
+    const dishData = foodItem.filter((item) => item.category === category);
+    dishData.map(item => {
         var itemCard = document.createElement('div');
         itemCard.setAttribute('id', 'item-card')
 
@@ -29,6 +19,7 @@ function displayItems() {
         star.innerText = ' ' + item.rating;
 
         var heart = document.createElement('i');
+        heart.innerText = 'Add'
         heart.setAttribute('class', 'fa fa-heart-o add-to-cart');
         heart.setAttribute('id', item.id)
 
@@ -52,212 +43,71 @@ function displayItems() {
         itemCard.appendChild(itemName);
         itemCard.appendChild(itemPrice);
 
-        pho.appendChild(itemCard);
-
-    })
-
-    comData.map(item => {
-        var itemCard = document.createElement('div');
-        itemCard.setAttribute('id', 'item-card')
-
-        var cardTop = document.createElement('div');
-        cardTop.setAttribute('id', 'card-top');
-
-        var star = document.createElement('i');
-        star.setAttribute('class', 'fa fa-star');
-        star.setAttribute('id', 'rating');
-        star.innerText = ' ' + item.rating;
-
-        var heart = document.createElement('i');
-        heart.setAttribute('class', 'fa fa-heart-o add-to-cart');
-        heart.setAttribute('id', item.id)
-
-        cardTop.appendChild(star);
-        cardTop.appendChild(heart);
-
-
-        var img = document.createElement('img');
-        img.src = item.img;
-
-        var itemName = document.createElement('p');
-        itemName.setAttribute('id', 'item-name');
-        itemName.innerText = item.name;
-
-        var itemPrice = document.createElement('p');
-        itemPrice.setAttribute('id', 'item-price');
-        itemPrice.innerText = 'Price : $ ' + item.price;
-
-        itemCard.appendChild(cardTop);
-        itemCard.appendChild(img);
-        itemCard.appendChild(itemName);
-        itemCard.appendChild(itemPrice);
-
-        com.appendChild(itemCard)
-
-    })
-
-    hutieuData.map((item) => {
-        var itemCard = document.createElement("div");
-        itemCard.setAttribute("id", "item-card");
-
-        var cardTop = document.createElement("div");
-        cardTop.setAttribute("id", "card-top");
-
-        var star = document.createElement("i");
-        star.setAttribute("class", "fa fa-star");
-        star.setAttribute("id", "rating");
-        star.innerText = " " + item.rating;
-
-        var heart = document.createElement("i");
-        heart.setAttribute("class", "fa fa-heart-o add-to-cart");
-        heart.setAttribute("id", item.id);
-
-        cardTop.appendChild(star);
-        cardTop.appendChild(heart);
-
-        var img = document.createElement("img");
-        img.src = item.img;
-
-        var itemName = document.createElement("p");
-        itemName.setAttribute("id", "item-name");
-        itemName.innerText = item.name;
-
-        var itemPrice = document.createElement("p");
-        itemPrice.setAttribute("id", "item-price");
-        itemPrice.innerText = "Price : $ " + item.price;
-
-        itemCard.appendChild(cardTop);
-        itemCard.appendChild(img);
-        itemCard.appendChild(itemName);
-        itemCard.appendChild(itemPrice);
-
-        hutieu.appendChild(itemCard);
-    });
-
-
-    miData.map((item) => {
-        var itemCard = document.createElement("div");
-        itemCard.setAttribute("id", "item-card");
-
-        var cardTop = document.createElement('div');
-        cardTop.setAttribute('id', 'card-top');
-
-        var star = document.createElement('i');
-        star.setAttribute('class', 'fa fa-star');
-        star.setAttribute('id', 'rating');
-        star.innerText = ' ' + item.rating;
-
-        var heart = document.createElement('i');
-        heart.setAttribute('class', 'fa fa-heart-o add-to-cart');
-        heart.setAttribute('id', item.id)
-
-        cardTop.appendChild(star);
-        cardTop.appendChild(heart);
-
-        var img = document.createElement("img");
-        img.src = item.img;
-
-        var itemName = document.createElement('p');
-        itemName.setAttribute('id', 'item-name');
-        itemName.innerText = item.name;
-
-        var itemPrice = document.createElement('p');
-        itemPrice.setAttribute('id', 'item-price');
-        itemPrice.innerText = 'Price : $ ' + item.price;
-
-        itemCard.appendChild(cardTop);
-        itemCard.appendChild(img);
-        itemCard.appendChild(itemName);
-        itemCard.appendChild(itemPrice);
-
-        mi.appendChild(itemCard);
-    });
-
-    banhMiData.map(item => {
-        var itemCard = document.createElement('div');
-        itemCard.setAttribute('id', 'item-card')
-
-        var cardTop = document.createElement('div');
-        cardTop.setAttribute('id', 'card-top');
-
-        var star = document.createElement('i');
-        star.setAttribute('class', 'fa fa-star');
-        star.setAttribute('id', 'rating');
-        star.innerText = ' ' + item.rating;
-
-        var heart = document.createElement('i');
-        heart.setAttribute('class', 'fa fa-heart-o add-to-cart');
-        heart.setAttribute('id', item.id)
-
-        cardTop.appendChild(star);
-        cardTop.appendChild(heart);
-
-
-        var img = document.createElement('img');
-        img.src = item.img;
-
-        var itemName = document.createElement('p');
-        itemName.setAttribute('id', 'item-name');
-        itemName.innerText = item.name;
-
-        var itemPrice = document.createElement('p');
-        itemPrice.setAttribute('id', 'item-price');
-        itemPrice.innerText = 'Price : $ ' + item.price;
-
-        itemCard.appendChild(cardTop);
-        itemCard.appendChild(img);
-        itemCard.appendChild(itemName);
-        itemCard.appendChild(itemPrice);
-
-
-        banhMi.appendChild(itemCard)
-    })
-
-    doAnChayData.map(item => {
-        var itemCard = document.createElement('div');
-        itemCard.setAttribute('id', 'item-card')
-
-        var cardTop = document.createElement('div');
-        cardTop.setAttribute('id', 'card-top');
-
-        var star = document.createElement('i');
-        star.setAttribute('class', 'fa fa-star');
-        star.setAttribute('id', 'rating');
-        star.innerText = ' ' + item.rating;
-
-        var heart = document.createElement('i');
-        heart.setAttribute('class', 'fa fa-heart-o add-to-cart');
-        heart.setAttribute('id', item.id)
-
-        cardTop.appendChild(star);
-        cardTop.appendChild(heart);
-
-
-        var img = document.createElement('img');
-        img.src = item.img;
-
-        var itemName = document.createElement('p');
-        itemName.setAttribute('id', 'item-name');
-        itemName.innerText = item.name;
-
-        var itemPrice = document.createElement('p');
-        itemPrice.setAttribute('id', 'item-price');
-        itemPrice.innerText = 'Price : $ ' + item.price;
-
-        itemCard.appendChild(cardTop);
-        itemCard.appendChild(img);
-        itemCard.appendChild(itemName);
-        itemCard.appendChild(itemPrice);
-
-        doAnChay.appendChild(itemCard)
+        dish.appendChild(itemCard);
     })
 }
 
+function displayItems() {
+    const categories = ['phở', 'cơm', 'hủ tiếu', 'mì', 'bánh mì', 'đồ ăn chay'];
+    categories.forEach(category => {
+        createList(category);
+    })
+}
 displayItems();
 
 
 const vegData = [...new Map(foodItem.map(item => [item['category'], item])).values()];
 console.log(vegData);
+
+function createSearchList(category) {
+    var dish = document.getElementById(nameToVar(category));
+
+    const dishData = foodItem.filter((item) => item.category === category);
+    dishData.map(item => {
+        var itemCard = document.createElement('div');
+        itemCard.setAttribute('id', 'item-card')
+
+        var cardTop = document.createElement('div');
+        cardTop.setAttribute('id', 'card-top');
+
+        var star = document.createElement('i');
+        star.setAttribute('class', 'fa fa-star');
+        star.setAttribute('id', 'rating');
+        star.innerText = ' ' + item.rating;
+
+        var heart = document.createElement('i');
+        heart.innerText = 'Add'
+        heart.setAttribute('class', 'fa fa-heart-o add-to-cart');
+        heart.setAttribute('id', item.id)
+
+        cardTop.appendChild(star);
+        cardTop.appendChild(heart);
+
+
+        var img = document.createElement('img');
+        img.src = item.img;
+
+        var itemName = document.createElement('p');
+        itemName.setAttribute('id', 'item-name');
+        itemName.innerText = item.name;
+
+        var itemPrice = document.createElement('p');
+        itemPrice.setAttribute('id', 'item-price');
+        itemPrice.innerText = 'Price : $ ' + item.price;
+
+        itemCard.appendChild(cardTop);
+        itemCard.appendChild(img);
+        itemCard.appendChild(itemName);
+        itemCard.appendChild(itemPrice);
+
+        dish.appendChild(itemCard);
+    })
+}
+
+function searchTaste() {
+    var name = document.getElementById('search-box').value;
+    createSearchList(name);
+}
 
 function selectTaste() {
     var categoryList = document.getElementById('category-list');
