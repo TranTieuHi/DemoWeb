@@ -50,6 +50,10 @@ function createList(category, name) {
             dish.appendChild(itemCard);
         }
     })
+
+    document.querySelectorAll('.add-to-cart').forEach(item => {
+        item.addEventListener('click', addToCart)
+    })
 }
 
 function displayItems(name) {
@@ -72,7 +76,6 @@ search.addEventListener('click', function(event) {
 
 var find = document.getElementById('search-box');
 
-// Add event listener for the 'focus' event
 find.addEventListener('focus', function(event) {
     find.addEventListener('keypress', function(event) {
         // Check if the key pressed is Enter (key code 13)
@@ -156,9 +159,6 @@ function nameToVar(str) {
     return splitStr.join('');
 }
 
-document.querySelectorAll('.add-to-cart').forEach(item => {
-    item.addEventListener('click', addToCart)
-})
 
 var cartData = [];
 
