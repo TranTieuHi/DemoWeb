@@ -522,3 +522,10 @@ color: white;
         padding: 0;
     }
 }
+
+#search-box {
+    border: 1px solid red;
+    border-radius: 6px;
+    height: 20px;
+    width: 200px;
+}

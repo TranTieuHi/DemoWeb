@@ -4,8 +4,10 @@ import {foodItem} from './fooditem.js'
 
 function createList(category, name) {
     var dish = document.getElementById(nameToVar(category));
+    dish.innerHTML = '<p id="category-name">' + category.charAt(0).toUpperCase() + category.slice(1) + '</p>';
 
     var dishData = foodItem.filter((item) => item.category === category);
+
     dishData.map(item => {
         var iName = item.name.toLowerCase();
         if ((name !== null && iName.includes(name.toLowerCase())) || name === null) {
@@ -60,11 +62,19 @@ function displayItems(name) {
 
 displayItems(null);
 
-// export function searchTaste() {
-//     var name = document.getElementById('search-box').value;
-//     console.log(name);
-//     displayItems(name);
-// }
+var search = document.getElementById('btn-search')
+
+search.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default action (e.g., following the link)
+    searchTaste();
+    // Your code to handle the click event goes here
+});
+
+function searchTaste() {
+    var name = document.getElementById('search-box').value;
+    console.log(name);
+    displayItems(name);
+}
 
 
 const vegData = [...new Map(foodItem.map(item => [item['category'], item])).values()];

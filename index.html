@@ -10,14 +10,14 @@
     />
     <title>Food Website</title>
     <link rel="stylesheet" href="index.css"/>
-    <link rel="stylesheet" href="index.js"/>
+<!--    <link rel="stylesheet" href="index.js"/>-->
 </head>
 <body>
 <!-- desktop view -->
 <div class="container" id="container">
     <div id="menu">
         <div class="title">
-            <img src="/img/foodie hunter.png" alt=""/>
+            <img src="img/foodie hunter.png" alt=""/>
         </div>
         <div class="menu-item">
             <a href="#">About</a>
@@ -36,8 +36,8 @@
                 <i class="fa fa-map-marker your-address" id="add-address"> Your Address</i>
             </div>
             <div class="util">
-                <input type="search" id="search-box" class="form-control"/>
-                <i class="fa fa-search" onclick="searchTaste()"> Search</i>
+                <input type="text" id="search-box" placeholder="Search for your favorite food">
+                <i id="btn-search">Search</i>
                 <i class="fa fa-tags"> Offers</i>
                 <i class="fa fa-cart-plus" id="cart-plus"> 0 Items</i>
             </div>
@@ -109,7 +109,7 @@
 <div id="mobile-view" class="mobile-view">
     <div class="mobile-top">
         <div class="logo-box">
-            <img src="/img/foodielogo.png" alt="" id="logo"/>
+            <img src="img/foodielogo.png" alt="" id="logo"/>
             <i class="fa fa-map-marker your-address" id="m-add-address">
                 Your Address</i
             >
