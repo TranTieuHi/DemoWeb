@@ -70,6 +70,18 @@ search.addEventListener('click', function(event) {
     // Your code to handle the click event goes here
 });
 
+var find = document.getElementById('search-box');
+
+// Add event listener for the 'focus' event
+find.addEventListener('focus', function(event) {
+    find.addEventListener('keypress', function(event) {
+        // Check if the key pressed is Enter (key code 13)
+        if (event.key === 'Enter') {
+            searchTaste()
+        }
+    });
+});
+
 function searchTaste() {
     var name = document.getElementById('search-box').value;
     console.log(name);
