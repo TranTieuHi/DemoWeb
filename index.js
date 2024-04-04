@@ -87,8 +87,7 @@ find.addEventListener('focus', function(event) {
 
 function searchTaste() {
     var name = document.getElementById('search-box').value;
-    console.log(name);
-    displayItems(name);
+    displayItems(name.trim());
 }
 
 
