@@ -167,7 +167,6 @@ function addToCart() {
 
     var index = cartData.indexOf(itemObj);
     if (index === -1) {
-        document.getElementById(itemObj.id).classList.add('toggle-heart');
         cartData = [...cartData, itemObj];
     } else if (index > -1) {
         alert("Added to cart!");
