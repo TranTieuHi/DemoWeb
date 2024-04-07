@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--suppress XmlDuplicatedId, HtmlUnknownTag -->
+<!--suppress ALL -->
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
@@ -10,7 +10,11 @@
     />
     <title>Food Website</title>
     <link rel="stylesheet" href="index.css"/>
-    <!--    <link rel="stylesheet" href="index.js"/>-->
+    <link rel="stylesheet" href="checkout.css"/>
+    <script src="checkout.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 <!-- desktop view -->
@@ -26,7 +30,7 @@
             <a href="#">Wishlists</a>
             <a href="#">Cart</a>
             <a href="#">Contact</a>
-            <a href="checkout.html">Checkout</a>
+            <a href="#">Checkout</a>
         </div>
     </div>
 
@@ -42,29 +46,39 @@
                 <i class="fa fa-cart-plus" id="cart-plus"> 0 Items</i>
             </div>
         </div>
-        <div id="food-items" class="d-food-items">
-            <div id="pho" class="d-biryani">
-                <p id="category-name">Phở</p>
+        <div id="checkout" class="checkout-table">
+            <div class="form-group">
+                <h2> Enter Your Address:</h2>
+                <input type="text" id="address" class="form-control" placeholder="Example: 123 Lạc Trôi Street, Hà Nội">
             </div>
-
-            <div id="com" class="d-chicken">
-                <p id="category-name">Cơm</p>
+            <div class="form-group">
+                <h2> Enter Your Discount:</h2>
+                <input type="text" id="discount" class="form-control" placeholder="Example: 10DiemBaiNay">
             </div>
+            <div class="form-group">
+                <h2> Choose Your Payment Method:</h2>
 
-            <div id="huTieu" class="d-huTieu">
-                <p id="category-name">Hủ Tiếu</p>
+                <input id="cash" type="radio" name="method" value="cash">
+                <img src="img/PaymentLogo/cash.png" alt="cash">
+                <label for="cash">Cash</label><br>
+
+                <input id="credit" type="radio" name="method" value="credit">
+                <img src="img/PaymentLogo/credit.png" alt="credit">
+                <label for="credit">Credit Card</label><br>
+
+                <input id="momo" type="radio" name="method" value="momo">
+                <img src="img/PaymentLogo/momo.png" alt="momo">
+                <label for="momo">MoMo</label><br>
+
+                <input id="organ" type="radio" name="method" value="organ">
+                <img src="img/PaymentLogo/organ.png" alt="organ">
+                <label for="organ">Your Friend's Organ (varies depending on total price)</label>
             </div>
-
-            <div id="mi" class="d-mi">
-                <p id="category-name">Mì</p>
+            <div class="form-group">
+                <h2> Your Order:</h2><br>
             </div>
-
-            <div id="banhMi" class="d-chinese">
-                <p id="category-name">Bánh Mì</p>
-            </div>
-
-            <div id="doAnChay" class="d-doAnChay">
-                <p id="category-name">Đồ Ăn Chay</p>
+            <div class="form-group">
+                <h2>Total Price:</h2>
             </div>
         </div>
 
@@ -92,16 +106,6 @@
                 <i class="fa fa-user-circle" id="circle"> Account</i>
             </div>
         </div>
-        <div id="category-list">
-            <p class="item-menu">Go For Hunt</p>
-            <div class="border"></div>
-        </div>
-        <div id="checkout" class="cart-toggle">
-            <p id="total-item">Total Item : 5</p>
-            <p id="total-price"></p>
-            <p id="delievery">Free delievery on $ 40</p>
-            <button class="cart-btn">Checkout</button>
-        </div>
     </div>
 </div>
 
@@ -110,7 +114,9 @@
     <div class="mobile-top">
         <div class="logo-box">
             <img src="img/foodielogo.png" alt="" id="logo"/>
-            <i class="fa fa-map-marker your-address" id="m-add-address"> Your Address</i>
+            <i class="fa fa-map-marker your-address" id="m-add-address">
+                Your Address</i
+            >
         </div>
         <div class="top-menu">
             <i class="fa fa-search"></i>
@@ -121,28 +127,6 @@
     </div>
 
     <div class="item-container">
-        <div class="category-header" id="category-header"></div>
-
-        <div id="food-items" class="food-items">
-            <div id="pho" class="m-pho">
-                <p id="category-name">Phở</p>
-            </div>
-            <div id="com" class="m-com">
-                <p id="category-name">Cơm</p>
-            </div>
-            <div id="huTieu" class="m-paneer">
-                <p id="category-name">Hủ Tiếu</p>
-            </div>
-            <div id="mi" class="d-mi">
-                <p id="category-name">Mì</p>
-            </div>
-            <div id="banhMi" class="m-banhMi">
-                <p id="category-name">Bánh Mì</p>
-            </div>
-            <div id="doAnChay" class="m-doAnChay">
-                <p id="category-name">Đồ Ăn Chay</p>
-            </div>
-        </div>
     </div>
 
     <div class="mobile-footer">

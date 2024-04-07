@@ -64,7 +64,9 @@ function displayItems(name) {
     })
 }
 
-displayItems(null);
+if (document.location.href.includes("index.html")) {
+    displayItems(null);
+}
 
 var search = document.getElementById('btn-search')
 
@@ -76,9 +78,8 @@ search.addEventListener('click', function(event) {
 
 var find = document.getElementById('search-box');
 
-find.addEventListener('focus', function(event) {
+find.addEventListener('focus', function() {
     find.addEventListener('keypress', function(event) {
-        // Check if the key pressed is Enter (key code 13)
         if (event.key === 'Enter') {
             searchTaste()
         }
@@ -352,3 +353,11 @@ function addAddress() {
         alert("Address not added")
     }
 }
+
+var checkout = document.querySelectorAll('.cart-btn')
+
+checkout.forEach(function(button) {
+    button.addEventListener('click', function() {
+        window.location.href = 'checkout.html';
+    })
+})

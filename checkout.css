@@ -1,0 +1,27 @@
+#checkout {
+    text-align: left;
+}
+
+.form-group {
+    margin: 2%;
+}
+
+.form-group input[type="text"] {
+    width: 40%;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+.form-group img {
+    min-width: 16px;
+    width: 2%;
+    cursor: pointer;
+}
+
+.form-group h2 {
+    margin-bottom: 1%;
+}
+
+.form-group label {
+    cursor: pointer;
+}
