@@ -1,3 +1,7 @@
+<?php
+        include("user_login.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +12,8 @@
             content="width=device-width, initial-scale=1.0,viewport-fit=cover"
     />
     <title>Food Website</title>
-    <link rel="stylesheet" href="styles/index.css"/>
+    <link rel="stylesheet" href="style\logined.css"/>
+    <link rel="stylesheet" href="logined.js"/>
 </head>
 <body>
 <!-- desktop view -->
@@ -86,7 +91,17 @@
     <div id="cart">
         <div class="taste-header">
             <div class="user">
-                <i class="fa fa-user-circle" id="circle"><a href="login.php" >Account</a></i>
+                <<?php
+                    if(isset($_SESSION['Username'])) {
+                        echo '<div class="user-options">';
+                            echo '<a href="profile.php" class="profile-link"><i class="fa fa-user-circle" id="circle">' . $_SESSION['Username'] .'</i></a>';
+                            echo '<div class="options">';
+                                echo '<a href="login.php">Logout</a>';
+                                echo '<a href="profile.php">Profile</a>';
+                            echo '</div>';
+                        echo '</div>';
+                    } 
+                ?>
             </div>
         </div>
         <div id="category-list">
@@ -151,6 +166,6 @@
         <p>orders</p>
     </div>
 </div>
-<script src="scripts/index.js" type="module"></script>
+<script src="index.js" type="module"></script>
 </body>
 </html>
