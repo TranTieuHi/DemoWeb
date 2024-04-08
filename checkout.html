@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0,viewport-fit=cover"
+    />
+    <title>Food Website</title>
+    <link rel="stylesheet" href="styles/index.css"/>
+    <link rel="stylesheet" href="styles/checkout.css"/>
+    <script src="scripts/checkout.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- desktop view -->
+<div class="container" id="container">
+    <div id="menu">
+        <div class="title">
+            <img src="img/foodie hunter.png" alt=""/>
+        </div>
+        <div class="menu-item">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About</a>
+            <a href="#">Your Orders</a>
+            <a href="#">Wishlists</a>
+            <a href="#">Cart</a>
+            <a href="#">Contact</a>
+            <a href="#">Checkout</a>
+        </div>
+    </div>
+
+    <div id="food-container">
+        <div id="header">
+            <div class="add-box">
+                <i class="fa fa-map-marker your-address" id="add-address"> Your Address</i>
+            </div>
+            <div class="util">
+                <input type="text" id="search-box" placeholder="Search for your favorite food">
+                <i id="btn-search">Search</i>
+                <i class="fa fa-tags"> Offers</i>
+                <i class="fa fa-cart-plus" id="cart-plus"> 0 Items</i>
+            </div>
+        </div>
+        <div id="checkout" class="checkout-table">
+            <div class="form-group">
+                <h2> Enter Your Address:</h2>
+                <input type="text" id="address" class="form-control" placeholder="Example: 123 Lạc Trôi Street, Hà Nội">
+            </div>
+            <div class="form-group">
+                <h2> Enter Your Discount:</h2>
+                <input type="text" id="discount" class="form-control" placeholder="Example: 10DiemBaiNay">
+            </div>
+            <div class="form-group">
+                <h2> Choose Your Payment Method:</h2>
+
+                <input id="cash" type="radio" name="method" value="cash">
+                <img src="img/PaymentLogo/cash.png" alt="cash">
+                <label for="cash">Cash</label><br>
+
+                <input id="credit" type="radio" name="method" value="credit">
+                <img src="img/PaymentLogo/credit.png" alt="credit">
+                <label for="credit">Credit Card</label><br>
+
+                <input id="momo" type="radio" name="method" value="momo">
+                <img src="img/PaymentLogo/momo.png" alt="momo">
+                <label for="momo">MoMo</label><br>
+
+                <input id="organ" type="radio" name="method" value="organ">
+                <img src="img/PaymentLogo/organ.png" alt="organ">
+                <label for="organ">Your Friend's Organ (varies depending on total price)</label>
+            </div>
+            <div class="form-group">
+                <h2> Your Order:</h2><br>
+            </div>
+            <div class="form-group">
+                <h2>Total Price:</h2>
+            </div>
+        </div>
+
+        <div id="cart-page" class="cart-toggle">
+            <p id="cart-title">Cart Items</p>
+            <p id="m-total-amount">Total Amout : 100</p>
+            <table>
+                <thead>
+                <td>Item</td>
+                <td>Name</td>
+                <td>Quantity</td>
+                <td>Price</td>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+            <div class="btn-box">
+                <button class="cart-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cart">
+        <div class="taste-header">
+            <div class="user">
+                <i class="fa fa-user-circle" id="circle"> Account</i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- mobile view -->
+<div id="mobile-view" class="mobile-view">
+    <div class="mobile-top">
+        <div class="logo-box">
+            <img src="img/foodielogo.png" alt="" id="logo"/>
+            <i class="fa fa-map-marker your-address" id="m-add-address">
+                Your Address</i
+            >
+        </div>
+        <div class="top-menu">
+            <i class="fa fa-search"></i>
+            <i class="fa fa-tag"></i>
+            <i class="fa fa-heart-o"></i>
+            <i class="fa fa-cart-plus" id="m-cart-plus"> 0</i>
+        </div>
+    </div>
+
+    <div class="item-container">
+    </div>
+
+    <div class="mobile-footer">
+        <p>Home</p>
+        <p>Cart</p>
+        <p>offers</p>
+        <p>orders</p>
+    </div>
+</div>
+<script src="scripts/index.js" type="module"></script>
+</body>
+</html>
