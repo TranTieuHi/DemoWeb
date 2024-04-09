@@ -1,6 +1,6 @@
 // noinspection RegExpSingleCharAlternation,RegExpRedundantEscape,ES6ConvertVarToLetConst
 
-import {foodItem} from './food.js'
+import {foodItem} from './fooditem.js'
 
 function createList(category, name) {
     var dish = document.getElementById(nameToVar(category));

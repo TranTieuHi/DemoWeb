@@ -132,7 +132,7 @@
     </div>
 
     <script type="module">
-        import { foodItem } from "./food.js";
+        import { foodItem } from "./scripts/food.js";
 
         // Function to display items
         function displayItems(items) {
@@ -164,7 +164,7 @@
             });
         }
     </script>
-    <script src="scripts/admin.js"></script>
+    <script src="admin.js"></script>
 </body>
 
 </html>
