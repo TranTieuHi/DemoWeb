@@ -299,6 +299,14 @@ function cartToggle() {
         document.getElementById('checkout').classList.toggle('cart-toggle');
         flag = true;
         console.log(flag)
+
+        var checkout = document.querySelectorAll('.cart-btn')
+
+        checkout.forEach(function(button) {
+            button.addEventListener('click', function() {
+                window.location.href = 'checkout.html';
+            })
+        })
     } else {
         alert("Currently no item in cart!");
     }
@@ -353,11 +361,3 @@ function addAddress() {
         alert("Address not added")
     }
 }
-
-var checkout = document.querySelectorAll('.cart-btn')
-
-checkout.forEach(function(button) {
-    button.addEventListener('click', function() {
-        window.location.href = 'checkout.html';
-    })
-})
