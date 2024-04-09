@@ -14,10 +14,10 @@ $result = $conn->query($sql);
 // Check if there are rows in the result
 if ($result->num_rows > 0) {
     // Open food.js file for writing
-    $file = fopen("javascript/food.js", "w");
+    $file = fopen("scripts/food.js", "w");
 
     // Write the beginning of the JavaScript array
-    fwrite($file, "const foodData = [\n");
+    fwrite($file, "const foodItem = [\n");
 
     // Loop through each row of the result and write the data to the food.js file
     while ($row = $result->fetch_assoc()) {
@@ -34,6 +34,7 @@ if ($result->num_rows > 0) {
 
     // Write the end of the JavaScript array
     fwrite($file, "];\n");
+    fwrite($file, "export { foodItem };");
 
     // Close the file
     fclose($file);

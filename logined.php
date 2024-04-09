@@ -12,8 +12,7 @@
             content="width=device-width, initial-scale=1.0,viewport-fit=cover"
     />
     <title>Food Website</title>
-    <link rel="stylesheet" href="style\logined.css"/>
-    <link rel="stylesheet" href="logined.js"/>
+    <link rel="stylesheet" href="styles\logined.css"/>
 </head>
 <body>
 <!-- desktop view -->
@@ -166,6 +165,6 @@
         <p>orders</p>
     </div>
 </div>
-<script src="index.js" type="module"></script>
+<script src="scripts/index.js" type="module"></script>
 </body>
 </html>

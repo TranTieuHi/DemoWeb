@@ -25,7 +25,7 @@
             exit(); 
         } else {
             $_SESSION['error'] = "Invalid password or email";
-            header("Location: login.php?error=1"); // Passing error as a query parameter
+            header("Location: login.php?error=1"); 
             exit(); 
         }
     }

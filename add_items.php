@@ -9,11 +9,12 @@
             // Get form data and sanitize inputs
             $itemName = mysqli_real_escape_string($conn, $_POST['itemName']);
             $itemCategory = mysqli_real_escape_string($conn, $_POST['itemCategory']);
+            $itemCategory= strtolower($itemCategory);
             $itemRating = (float)$_POST['itemRating']; // Type cast to float
             $itemPrice = (float)$_POST['itemPrice']; // Type cast to float
 
             // File upload handling
-            $targetDirectory = "img/"; // Specify the directory to store uploaded files
+            $targetDirectory = "img/{$itemCategory}/"; // Specify the directory to store uploaded files
             $targetFile = $targetDirectory . basename($_FILES["itemImage"]["name"]);
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));

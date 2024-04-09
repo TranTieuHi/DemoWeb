@@ -6,6 +6,7 @@ html{
     height: 100%;
 }
 body{
+    background: whitesmoke;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -20,7 +21,6 @@ body{
     overflow: hidden;
 }
 #menu{
-    background: whitesmoke;
 }
 .title{
     padding: 0 30px;
@@ -55,13 +55,12 @@ body{
     margin: 12px 0;
     color: rgb(128, 129, 129);
     font-weight: 300;
-    
+
 }
 .menu-item a:hover{
     background: rgb(250, 212, 218);
 }
 #food-items{
-    background: whitesmoke;
     overflow: auto;
     height: calc(100vh - 86px);
 }
@@ -73,7 +72,6 @@ body{
     padding-bottom: 10px;
     position: sticky;
     top: 0;
-    background: whitesmoke;
     z-index: 1;
 }
 ::-webkit-scrollbar{
@@ -81,7 +79,7 @@ body{
 }
 #header .address{
     font-size: 20px;
-    
+
 }
 #map{
     font-size: 25px;
@@ -285,7 +283,6 @@ color: white;
     color: limegreen;
 }
 #cart{
-    background: whitesmoke;
     padding-right: 30px;
     overflow-y: scroll;
 }
@@ -295,7 +292,6 @@ color: white;
     font-size: 30px;
     margin-top: 40px;
     color: indianred;
-    background: whitesmoke;
 
 }
 .list-card{
@@ -330,7 +326,6 @@ color: white;
     padding-bottom: 10px;
     position: sticky;
     top: 0;
-    background: whitesmoke;
 }
 #mobile-view{
     display: none;
@@ -521,4 +516,11 @@ color: white;
     #food-items{
         padding: 0;
     }
+}
+
+#search-box {
+    border: 1px solid red;
+    border-radius: 6px;
+    height: 20px;
+    width: 200px;
 }
