@@ -1,11 +1,11 @@
 @font-face {
     font-family: "Enthusiastic";
-    src: url(./fonts/Enthusiastic-OV148.ttf);
+    src: url(../fonts/Enthusiastic-OV148.ttf);
 }
 
 .top-background {
     color: white;
-    background-image: url('img/AboutUs/top.jpg');
+    background-image: url('../img/AboutUs/top.jpg');
     background-position: top;
     background-repeat: no-repeat;
     height: 75vh;
@@ -15,7 +15,7 @@
 
 .bottom-background {
     color: white;
-    background-image: url('img/AboutUs/bottom_bg.jpg');
+    background-image: url('../img/AboutUs/bottom_bg.jpg');
     background-position: bottom;
     background-repeat: no-repeat;
     background-color: #FFFFF0;
@@ -146,15 +146,15 @@ p {
 
 @keyframes swapImages {
     0%, 30% {
-        background-image: url('img/AboutUs/image1.jpg');
+        background-image: url('../img/AboutUs/image1.jpg');
     }
     30%, 63% {
-        background-image: url('img/AboutUs/image2.jpg');
+        background-image: url('../img/AboutUs/image2.jpg');
     }
     63%, 97% {
-        background-image: url('img/AboutUs/image3.jpg');
+        background-image: url('../img/AboutUs/image3.jpg');
     }
     97%, 100% {
-        background-image: url('img/AboutUs/image1.jpg');
+        background-image: url('../img/AboutUs/image1.jpg');
     }
 }
